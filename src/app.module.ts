@@ -10,6 +10,7 @@ import {NewsOrmEntity} from "./infrastructure/database/postgre/news.orm-entity";
 import {PermissionsOrmEntity} from "./infrastructure/database/postgre/permissions.orm-entity";
 import {RolePermissionsOrmEntity} from "./infrastructure/database/postgre/role-permissions.orm-entity";
 import {RoleOrmEntity} from "./infrastructure/database/postgre/role.orm-entity";
+import {TokenOrmEntity} from "./infrastructure/database/postgre/token.orm.entity";
 
 @Module({
     imports: [
@@ -19,7 +20,8 @@ import {RoleOrmEntity} from "./infrastructure/database/postgre/role.orm-entity";
             NewsOrmEntity,
             PermissionsOrmEntity,
             RolePermissionsOrmEntity,
-            RoleOrmEntity
+            RoleOrmEntity,
+            TokenOrmEntity
         ]),
         ConfigModule.forRoot({
             isGlobal: true

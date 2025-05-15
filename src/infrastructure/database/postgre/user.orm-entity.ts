@@ -3,12 +3,13 @@ import {
     CreateDateColumn,
     Entity,
     JoinTable,
-    ManyToOne,
+    ManyToOne, OneToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from "typeorm";
 import {RoleOrmEntity} from "./role.orm-entity";
 import {JoinAttribute} from "typeorm/query-builder/JoinAttribute";
+import {TokenOrmEntity} from "./token.orm.entity";
 
 @Entity({name: "users"})
 export class UserOrmEntity {
@@ -44,4 +45,7 @@ export class UserOrmEntity {
 
     @ManyToOne(() => RoleOrmEntity, {eager: true})
     role: RoleOrmEntity;
+
+    @OneToOne(() => TokenOrmEntity, (token) => token.user)
+    token: TokenOrmEntity;
 }
